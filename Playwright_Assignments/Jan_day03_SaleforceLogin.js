@@ -12,6 +12,9 @@ test('Salesforce login', async () =>
     await page.locator("input#Login").click();
     const pageUrl =  page.url();
     //expect(pageUrl).toContainEqual("https://login.salesforce.com/");// Failing even though received url is same as expected url
-    expect(pageUrl).toContain("https://login.salesforce.com/");
+    expect(pageUrl).toContain("https://login.salesforce.com/");//Assertion to verify page url
+    const pageTitle = await page.title();
+    console.log(pageTitle);
+    expect(pageTitle).toContain("Login | Salesforce");//Assertion to verify page title
     
 })
